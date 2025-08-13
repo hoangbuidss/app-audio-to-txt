@@ -8,7 +8,19 @@ import os
 EXPORT_DIR = "exported_logs"
 os.makedirs(EXPORT_DIR, exist_ok=True)
 
-st.set_page_config(page_title="AI Conversation Review", layout="wide")
+hide_streamlit_style = """
+<style>
+/* Ẩn header */
+header {visibility: hidden;}
+/* Ẩn footer "Made with Streamlit" */
+footer {visibility: hidden;}
+</style>
+"""
+st.set_page_config(
+    page_title="AI Conversation Review",
+    layout="centered"
+)
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # ===== SESSION STATE =====
 if "recording" not in st.session_state:
