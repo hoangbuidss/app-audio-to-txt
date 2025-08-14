@@ -10,10 +10,14 @@ os.makedirs(EXPORT_DIR, exist_ok=True)
 
 hide_streamlit_style = """
 <style>
-/* Ẩn header */
 header {visibility: hidden;}
-/* Ẩn footer "Made with Streamlit" */
 footer {visibility: hidden;}
+a[href*="github"], a[href*="streamlit.io"] {
+    display: none !important;
+}
+div[style*="position: fixed"][style*="bottom"] {
+    display: none !important;
+}
 </style>
 """
 st.set_page_config(
@@ -33,7 +37,7 @@ if "notes" not in st.session_state:
     st.session_state.notes = ""
 
 # ===== UI TITLE =====
-st.title("🎙 AI Conversation Review Tool")
+st.title("AI Conversation Review Tool")
 
 # ===== SESSION CONTROL =====
 col1, col2 = st.columns([1, 1])
